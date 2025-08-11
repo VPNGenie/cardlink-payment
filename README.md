@@ -1,6 +1,10 @@
 SDK для работы с API cardlink.link
 
 # Использование
+Установка
+```
+npm i cardlink-payment
+```
 ## TypeScript
 ```typescript
 import { CardLink, Currency, paymentPockback } from "cardlink-payment";
