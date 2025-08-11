@@ -1,12 +1,11 @@
 import { BillType } from "../../enums/bill-type.js";
 import { Currency } from "../../enums/currency.js";
+import { PayerPaysCommission } from "../../enums/payer-pays-commission.js";
 import { PaymentMethod } from "../../enums/payment-method.js";
 
 export interface CreateBillRequest {
     // Сумма счета на оплату (например: 380.99)
     amount: number,
-    // Уникальный идентификатор магазина, к которому относится платеж. Без этого параметра не будет работать Success URL, Fail URL и Result URL (например: LXZv3R7Q8B)
-    shop_id: string,
     // Уникальный идентификатор заказа. Будет возвращен в postback (например: order-285394168)
     order_id?: string,
     // Описание платежа (например: Order #285394168)
@@ -18,7 +17,7 @@ export interface CreateBillRequest {
     // Произвольное поле. Будет возвращено в postback (например: my-custom-string)
     custom?: string,
     // Параметр, который указывает на то, кто будет оплачивать комиссию за входящий платёж (например: 1)
-    payer_pays_commission?: 1 | 0,
+    payer_pays_commission?: PayerPaysCommission
     // Параметр, который заполняет email клиента на платёжной странице (например: payer@email.com)
     payer_email?: string,
     // Название ссылки. Укажите, за что принимаете средства. Этот текст будет отображен в платежной форме (например: Donation)
